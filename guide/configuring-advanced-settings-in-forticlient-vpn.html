@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>FortiClient VPNの高度な設定の構成</title>
+  <meta name="description" content="FortiClient VPNの高度な設定（スプリットトンネリング、カスタムDNSなど）を構成して、Fortinet VPNエクスペリエンスを最適化する方法を学びます。">
+  <meta name="keywords" content="forticlient vpn, fortinet vpn, 高度な設定, スプリットトンネリング, vpn設定">
+
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="FortiClient VPNの高度な設定の詳細">
+  <meta property="og:description" content="高度な設定をマスターして、Fortinet VPNの可能性を最大限に引き出します。このガイドでは、スプリットトンネリング、カスタムDNSなどをカバーしています。">
+  <meta property="og:url" content="https://forticlient-japan.github.io/guide/configuring-advanced-settings-in-forticlient-vpn.html">
+  <meta property="og:site_name" content="FortiClient VPN ファンサイト">
+  <meta property="og:image" content="https://forticlient-japan.github.io/assets/img/guide/article-2.jpg">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "FortiClient VPNの高度な設定の構成",
+      "name": "FortiClient VPNの高度な設定の構成",
+      "description": "FortiClient VPNの高度な設定（スプリットトンネリング、カスタムDNSなど）を構成して、Fortinet VPNエクスペリエンスを最適化する方法を学びます。",
+      "url": "https://forticlient-japan.github.io/guide/configuring-advanced-settings-in-forticlient-vpn.html",
+      "inLanguage": "ja",
+      "image": "https://forticlient-japan.github.io/assets/img/guide/article-2.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "FortiClient VPN ファンサイト"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FortiClient VPN ファンサイト"
+      }
+    }
+  </script>
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.ico" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="../assets/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="starter-page-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="../index.html" class="logo d-flex align-items-center me-auto">
+        <div class="sitename">FortiClient VPN</div>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../aboutus.html">私たちについて</a></li>
+          <li><a href="../history.html">歴史</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="index.html">ガイド</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div class="page-title accent-background">
+      <div class="container">
+        <h1>FortiClient VPNの高度な設定の構成</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="../index.html">ホーム</a></li>
+            <li><a href="index.html">ガイド</a></li>
+            <li class="current">高度な設定の構成</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container" data-aos="fade-up">
+        <h2>FortiClient VPNの能力を解き放つ</h2>
+        <p>
+          FortiClient VPNの基本設定はシンプルさと使いやすさを重視して設計されていますが、その表面下には豊富な高度な機能が隠されています。パワーユーザー、IT管理者、そしてリモートアクセス体験を最適化したいすべての人にとって、これらの設定を理解することは不可欠です。このガイドでは、Fortinet VPNの高度な構成オプションについて掘り下げ、スプリットトンネリング、カスタムDNS設定、クライアント証明書認証などの強力な機能を解説します。これらの設定をマスターすることで、VPNの動作を特定のニーズに合わせて調整し、パフォーマンスとセキュリティの両方を向上させることができます。
+        </p>
+        <p>
+          高度な構成は、単に複雑さを増すためだけのものではありません。それは、きめ細かい制御を得るためのものです。例えば、ネットワークトラフィックを最適化して遅延を減らしたり、証明書ベースの認証でセキュリティ体制を強化したり、VPNに接続しながらローカルネットワークデバイスへのシームレスなアクセスを確保したりすることができます。このレベルの制御が、FortiClient VPNが多くの組織から信頼されるソリューションである理由の一つです。これらの設定に着手する前に、ご自身のネットワーク環境と組織のセキュリティポリシーを十分に理解しておくことをお勧めします。まだの方は、まずforticlient downloadを完了し、基本設定を行うことが前提となります。
+        </p>
+
+        <h2>スプリットトンネリングをマスターする</h2>
+        <p>
+          FortiClientの最も強力な機能の一つがスプリットトンネリングです。デフォルトでは、VPNに接続するとすべてのインターネットトラフィックがVPNトンネルを経由します。これはすべてを暗号化するため最も安全な構成ですが、企業ネットワーク上にない高帯域幅のアプリケーション（例：動画ストリーミングサービス）にアクセスする場合、パフォーマンスのボトルネックになる可能性があります。
+        </p>
+        <p>
+          スプリットトンネリングを使用すると、どのトラフィックをVPN経由にし、どのトラフィックを直接インターネットに送るかを定義できます。これはネットワーク管理者がFortiGateファイアウォールで構成します。有効にすると、特定の企業サブネット宛てのトラフィックのみが安全なトンネルを通ります。一般的なウェブ閲覧など、他のすべてのトラフィックはVPNをバイパスします。これにより、VPNゲートウェイの負荷が大幅に軽減され、インターネット速度が劇的に向上する可能性があります。この設定は一元管理されますが、その仕組みを理解することで、接続の問題を診断し、IT部門とより多くの情報に基づいた対話を行うのに役立ちます。Fortinet VPNのスプリットトンネリング実装は、柔軟かつ安全であり、機密データが保護されたままであることを保証します。
+        </p>
+
+        <h2>カスタムDNS構成</h2>
+        <p>
+          ドメインネームシステム（DNS）解決は、あらゆるネットワーク接続の重要な要素です。デフォルトでは、FortiClientはVPNゲートウェイによって指定されたDNSサーバーを使用します。しかし、この設定を上書きしたいシナリオもあります。例えば、企業のホスト名を解決するために特定の内部DNSサーバーを使用する必要がある場合や、速度とプライバシーを向上させるためにGoogle DNS（8.8.8.8）やCloudflare DNS（1.1.1.1）などのパブリックDNSサービスを一般的なインターネット検索に使用したい場合があります。
+        </p>
+        <p>
+          優先DNSサーバーを指定する機能は、FortiClientのVPN接続プロファイルの高度な設定内で構成できます。これにより、内部リソースとパブリックインターネットの両方で信頼性の高い名前解決を保証する柔軟性が得られます。ただし、DNS設定を変更する際には注意が必要です。誤った構成は、企業リソースへのアクセス不能や、完全なインターネット接続の喪失につながる可能性があります。DNS構成を変更する前に、必ずIT管理者に相談してください。
+        </p>
+
+        <h2>クライアント証明書認証の活用</h2>
+        <p>
+          セキュリティをさらに強化するため、多くの組織ではクライアント証明書認証を導入しています。このモデルでは、ユーザー名とパスワードに加えて、FortiClient VPNはユーザーのデバイスに一意のデジタル証明書がインストールされていることを要求します。この証明書はデジタルIDの一形態として機能し、そのデバイスがネットワークへの接続を許可されていることを証明します。この方法は、ユーザーの資格情報が侵害された場合でも不正アクセスから保護するため、パスワードのみの認証に比べて大幅なセキュリティ強化を提供します。
+        </p>
+        <p>
+          組織が証明書ベースの認証を使用している場合、IT管理者は証明書ファイル（多くの場合.p12または.pfx拡張子）とそれをインポートするためのパスワードを提供します。証明書のインポートプロセスは、FortiClientアプリケーション内で簡単に行えます。インポート後、VPN接続プロファイルでそれを選択できます。これにより、すべての接続試行がこの強力でデバイス固有の資格情報を使用して検証され、Fortinet VPNセットアップに堅牢な防御層が追加されます。
+        </p>
+
+        <h2>その他の高度な機能</h2>
+        <p>
+          スプリットトンネリング、DNS、証明書以外にも、FortiClientは他にもいくつかの高度なオプションを提供しています。これらには、カスタム接続タイムアウトの設定、ログイン時の自動接続の有効化、プロキシ設定の構成などが含まれます。これらのオプションを調べることで、よりシームレスで効率的なリモートアクセス体験を構築できます。いつものように、重要なのは各設定の意味を理解し、組織のセキュリティポリシーに沿って作業することです。基本的なforticlient downloadから完全に最適化された構成への道のりは、どこからでもより安全かつ生産的に作業できるようにするものです。
+        </p>
+        <img src="../assets/img/guide/article-2.jpg" class="img-fluid" alt="高度なネットワーク設定と構成のイラスト。">
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-6 col-md-12 footer-about">
+          <a href="../index.html" class="logo d-flex align-items-center">
+            <span class="sitename">FortiClient VPN ファンサイト</span>
+          </a>
+          <p>FortiClient VPNユーザーのための実用的なガイダンスとサポートを提供することに専念する独立したファンサイトです。私たちはFortinet社とは提携していません。</p>
+          <p>Email: support@forticlient-japan.github.io</p>
+          <p>Address: 〒100-0005 東京都千代田区丸の内１丁目</p>
+          <div class="social-links d-flex mt-4">
+            <a href="https://twitter.com/itmedia_news" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.instagram.com/microsoft/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6 footer-links">
+          <h4>リソース</h4>
+          <ul>
+            <li><a href="../terms-of-use.html">利用規約</a></li>
+            <li><a href="../privacy.html">プライバシーポリシー</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice">
+    <h4>クッキー</h4>
+    <p>当サイトでは、エクスペリエンスを向上させ、訪問者がサイトをどのように利用しているかを理解するためにクッキーを使用しています。</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-accept" type="button">同意する</button>
+      <button class="cookie-btn secondary cookie-later" type="button">後で</button>
+    </div>
+  </div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>

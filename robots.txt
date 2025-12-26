@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://forticlient-japan.github.io/sitemap.xml

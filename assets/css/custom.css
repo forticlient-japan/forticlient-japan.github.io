@@ -1,0 +1,222 @@
+/* Custom Styles for Uniqueness */
+
+/* Slightly adjusted colors */
+:root { 
+  --background-color: #fdfdfd;
+  --default-color: #464646;
+  --heading-color: #144369;
+  --accent-color: #2583ca;
+  --nav-color: #144369;
+  --nav-hover-color: #2583ca;
+  --nav-dropdown-color: #144369;
+  --nav-dropdown-hover-color: #2583ca;
+}
+
+.light-background {
+  --background-color: #f7fafd;
+}
+
+.dark-background {
+  --background-color: #070707;
+  --surface-color: #262626;
+}
+
+.accent-background {
+  --background-color: #2588ce;
+  --surface-color: #47a0df;
+}
+
+/* Slightly increased font sizes */
+h1 {
+  font-size: calc(2em * 1.03);
+}
+
+h2 {
+  font-size: calc(1.5em * 1.03);
+}
+
+h3 {
+  font-size: calc(1.17em * 1.03);
+}
+
+h4 {
+  font-size: calc(1em * 1.03);
+}
+
+h5 {
+  font-size: calc(0.83em * 1.03);
+}
+
+h6 {
+  font-size: calc(0.67em * 1.03);
+}
+
+p {
+  font-size: calc(1em * 1.03);
+}
+
+.header .logo img {
+  max-height: calc(36px * 1.03);
+}
+
+.header .logo h1 {
+  font-size: calc(30px * 1.03);
+}
+
+.header .logo .sitename {
+  font-size: calc(30px * 1.03);
+}
+
+.footer .footer-about p {
+  font-size: calc(14px * 1.03);
+}
+
+.footer h4 {
+  font-size: calc(16px * 1.03);
+}
+
+.page-title h1 {
+  font-size: calc(42px * 1.03);
+}
+
+.section-title h2 {
+  font-size: calc(32px * 1.03);
+}
+
+.hero h1 {
+  font-size: calc(56px * 1.03);
+}
+
+.hero p {
+  font-size: calc(22px * 1.03);
+}
+
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: calc(28px * 1.03);
+  }
+
+  .hero p {
+    font-size: calc(18px * 1.03);
+  }
+}
+
+.hero .icon-box .title {
+  font-size: calc(18px * 1.03);
+}
+
+.hero .icon-box .description {
+  font-size: calc(15px * 1.03);
+}
+
+.about-alt .content h3 {
+  font-size: calc(1.75rem * 1.03);
+}
+
+.testimonials .testimonial-item h3 {
+  font-size: calc(18px * 1.03);
+}
+
+.testimonials .testimonial-item h4 {
+  font-size: calc(14px * 1.03);
+}
+
+.services .service-item h3 {
+  font-size: calc(22px * 1.03);
+}
+
+.services .service-item p {
+  font-size: calc(14px * 1.03);
+}
+
+.call-to-action h3 {
+  font-size: calc(28px * 1.03);
+}
+
+.portfolio .portfolio-item .portfolio-info h4 {
+  font-size: calc(18px * 1.03);
+}
+
+.portfolio .portfolio-item .portfolio-info p {
+  font-size: calc(14px * 1.03);
+}
+
+.team .team-member .member-info h4 {
+  font-size: calc(18px * 1.03);
+}
+
+.pricing .pricing-item h3 {
+  font-size: calc(20px * 1.03);
+}
+
+.pricing h4 {
+  font-size: calc(48px * 1.03);
+}
+
+.pricing h4 sup {
+  font-size: calc(28px * 1.03);
+}
+
+.pricing h4 span {
+  font-size: calc(18px * 1.03);
+}
+
+.faq .faq-container .faq-item h3 {
+  font-size: calc(18px * 1.03);
+}
+
+.comparison-table .compare-cell {
+  font-size: calc(14px * 1.03);
+}
+
+.fan-insights .insight-card h3 {
+  font-size: calc(20px * 1.03);
+}
+
+.fan-insights .insight-card p {
+  font-size: calc(14px * 1.03);
+}
+
+.contact .info-item h3 {
+  font-size: calc(18px * 1.03);
+}
+
+.contact .info-item p {
+  font-size: calc(14px * 1.03);
+}
+
+.portfolio-details .portfolio-info h3 {
+  font-size: calc(22px * 1.03);
+}
+
+.portfolio-details .portfolio-description h2 {
+  font-size: calc(26px * 1.03);
+}
+
+.portfolio-details .portfolio-description .testimonial-item h3 {
+  font-size: calc(18px * 1.03);
+}
+
+.portfolio-details .portfolio-description .testimonial-item h4 {
+  font-size: calc(14px * 1.03);
+}
+
+.service-details h3 {
+  font-size: calc(26px * 1.03);
+}
+
+.service-details h4 {
+  font-size: calc(20px * 1.03);
+}
+
+.service-details p {
+  font-size: calc(15px * 1.03);
+}
+
+.cookie-banner h4 {
+  font-size: calc(16px * 1.03);
+}
+
+.cookie-banner p {
+  font-size: calc(14px * 1.03);
+}
